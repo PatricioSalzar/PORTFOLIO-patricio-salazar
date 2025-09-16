@@ -342,3 +342,91 @@
         footer #imgContacto {
             margin-top: 0;
         }
+
+
+/* ===== BOTONES DE PROYECTOS ===== */
+#proyectos article a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 10px 8px;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#proyectos article a:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Estilo específico para enlaces que contienen "Probar" */
+#proyectos article a:not([href*="github"]) {
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.3), rgba(78, 205, 196, 0.3));
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.2);
+    font-weight: 600;
+}
+
+#proyectos article a:not([href*="github"]):hover {
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.5), rgba(78, 205, 196, 0.5));
+    box-shadow: 0 15px 35px rgba(255, 107, 107, 0.3);
+}
+
+/* Estilo específico para enlaces de GitHub */
+#proyectos article a[href*="github"] {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.4), rgba(50, 50, 50, 0.3));
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+#proyectos article a[href*="github"]:hover {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(80, 80, 80, 0.4));
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo para las imágenes dentro de los enlaces */
+#proyectos article a img {
+    width: 20px;
+    height: 20px;
+    transition: all 0.3s ease;
+    filter: brightness(0) invert(1);
+}
+
+#proyectos article a[href*="github"]:hover img {
+    transform: rotate(360deg) scale(1.1);
+}
+
+/* Efecto de onda al hacer clic */
+#proyectos article a {
+    position: relative;
+    overflow: hidden;
+}
+
+#proyectos article a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: width 0.6s, height 0.6s;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+#proyectos article a:active::before {
+    width: 300px;
+    height: 300px;
+}
